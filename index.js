@@ -31,7 +31,9 @@ const options = {
   password: process.env.PASSWORD,
 };
 
-console.log(options)
+app.get("/", (_req, res) => {
+  res.send(options)
+}
 
 const r = new snoowrap(options);
 const s = new snoostorm(r);
