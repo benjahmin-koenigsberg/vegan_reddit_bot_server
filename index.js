@@ -27,7 +27,7 @@ const options = {
   userAgent: "animalLiberation",
   clientSecret: process.env.CLIENT_SECRET,
   clientId: process.env.CLIENT_ID,
-  username: "Known_Importance_829",
+  username: process.env.USERNAME,
   password: process.env.PASSWORD,
 };
 
@@ -36,7 +36,8 @@ const s = new snoostorm(r);
 
 //new submission stream
 const submissions = s.Stream("submission", {
-  subreddit: "all",
+  subreddit:
+    "foodie+bacon+food+foodporn+cooking+askculinary+recipes+BreakfastFood+pizza+meat",
   pollTime: 5000,
 });
 
@@ -48,13 +49,10 @@ app.get("/", (_req, res) => {
     io.emit("stream", item);
   });
 
-  // comments.on("item", (item) => {
-  //  // console.log(item);
-  //   io.emit("stream", item);
-  // });
-
   res.send("hm");
 });
+
+
 
 app.get("/com", (_req, res) => {
   console.log("com endpoint hit...");

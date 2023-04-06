@@ -8,10 +8,10 @@ const dotenv = require("dotenv").config();
 //instantiant connection to reddit , user1
 const options = {
   userAgent: "animalLiberation",
-  clientSecret: process.env.CLIENT_SECRET,
-  clientId: process.env.CLIENT_ID,
-  username: "Known_Importance_829",
-  password: process.env.PASSWORD
+  clientSecret: process.env.CLIENT_SECRET2,
+  clientId: process.env.CLIENT_ID2,
+  username: process.env.USERNAME2,
+  password: process.env.PASSWORD2
 };
 
 const r = new snoowrap(options);

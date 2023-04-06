@@ -8,10 +8,10 @@ const dotenv = require("dotenv").config();
 //instantiant connection to reddit , user1
 const options = {
   userAgent: "animalLiberation",
-  clientSecret: process.env.CLIENT_SECRET,
-  clientId: process.env.CLIENT_ID,
-  username: "Known_Importance_829",
-  password: process.env.PASSWORD
+  clientSecret: process.env.CLIENT_SECRET2,
+  clientId: process.env.CLIENT_ID2,
+  username: "ARA_269",
+  password: process.env.PASSWORD2
 };
 
 const r = new snoowrap(options);
@@ -43,8 +43,5 @@ const submissions = s.Stream("submission", {
           "'Fish feel pain! Neurobiologists have long recognized that fish have nervous systems that comprehend and respond to pain. Fish, like “higher vertebrates,” have neurotransmitters such as endorphins that relieve suffering—the only reason for their nervous systems to produce these painkillers is to alleviate pain.....http://www.nationearth.com/"
         );
       }
-
-
-
 
   });
