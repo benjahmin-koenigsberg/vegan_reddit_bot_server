@@ -31,10 +31,6 @@ const options = {
   password: process.env.PASSWORD,
 };
 
-app.get("/", (_req, res) => {
-  res.send(options);
-});
-
 const r = new snoowrap(options);
 const s = new snoostorm(r);
 
@@ -53,10 +49,10 @@ app.get("/", (_req, res) => {
     res.send(item);
   });
 
-  // submissions.on("item", (item) => {
-  //   //console.log(item)
-  //     io.emit("stream", item);
-  // });
+  submissions.on("item", (item) => {
+    //console.log(item)
+    io.emit("stream", item);
+  });
   // res.send('submission stream engaged');
 });
 
@@ -70,6 +66,6 @@ app.get("/com", (_req, res) => {
     });
 });
 
-server.listen(process.env.PORT || 8001, () => {
+app.listen(process.env.PORT || 8001, () => {
   console.log("running server.js");
 });
