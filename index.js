@@ -16,17 +16,12 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 let io;
 
-app.get("/", (req, res) => {
-  res.send(": )");
-});
-
 //sckets setup
 io = new Server(server, {
   cors: {
     origin: "*",
   },
 });
-
 
 const options = {
   userAgent: "animalLiberation",
@@ -44,7 +39,6 @@ const submissions = s.Stream("submission", {
   subreddit: "all",
   pollTime: 5000,
 });
-
 
 app.get("/", (_req, res) => {
   console.log("endpoint hit...");
@@ -75,7 +69,6 @@ app.get("/com", (_req, res) => {
 server.listen(process.env.PORT || 8001, () => {
   console.log("running server.js");
 });
-
 
 app.listen(process.env.PORT || 8001, () => {
   console.log("running server.js");
