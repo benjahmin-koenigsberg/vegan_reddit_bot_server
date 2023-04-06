@@ -17,8 +17,16 @@ const { Server } = require("socket.io");
 let io;
 
 app.get("/", (req, res) => {
-  res.send("a-ok still works!");
+  res.send(": )");
 });
+
+//sckets setup
+io = new Server(server, {
+  cors: {
+    origin: "*",
+  },
+});
+
 
 app.listen(process.env.PORT || 8001, () => {
   console.log("running server.js");
