@@ -50,7 +50,7 @@ const comments = s.Stream("comment", {
 app.get("/", (_req, res) => {
   console.log("endpoint hit...");
 
-  r.getSubmission("food").fetch().then((item) => {
+  r.getDefaultSubreddits("food").getNew().then((item) => {
     console.log(item);
     res.send(item);
   });
