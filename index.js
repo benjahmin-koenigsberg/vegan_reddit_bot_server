@@ -69,7 +69,3 @@ app.get("/com", (_req, res) => {
 server.listen(process.env.PORT || 8001, () => {
   console.log("running server.js");
 });
-
-app.listen(process.env.PORT || 8001, () => {
-  console.log("running server.js");
-});
