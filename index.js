@@ -91,7 +91,6 @@ comments.on("item", (item) => {
 });
 
   submissions.on("item", (item) => {
-
     if (
       item.title.toLowerCase().includes("bacon") ||
       item.selftext.toLowerCase().includes("bacon")
