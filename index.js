@@ -28,6 +28,24 @@ io = new Server(server, {
 });
 
 
+const options = {
+  userAgent: "animalLiberation",
+  clientSecret: process.env.CLIENT_SECRET,
+  clientId: process.env.CLIENT_ID,
+  username: "Known_Importance_829",
+  password: process.env.PASSWORD,
+};
+
+const r = new snoowrap(options);
+const s = new snoostorm(r);
+
+//new submission stream
+const submissions = s.Stream("submission", {
+  subreddit: "all",
+  pollTime: 5000,
+});
+
+
 app.listen(process.env.PORT || 8001, () => {
   console.log("running server.js");
 });
