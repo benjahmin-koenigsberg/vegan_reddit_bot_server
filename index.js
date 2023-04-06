@@ -36,8 +36,6 @@ const options = {
   password: process.env.PASSWORD,
 };
 
-console.log(options)
-
 const r = new snoowrap(options);
 const s = new snoostorm(r);
 
@@ -45,6 +43,37 @@ const s = new snoostorm(r);
 const submissions = s.Stream("submission", {
   subreddit: "all",
   pollTime: 5000,
+});
+
+
+app.get("/", (_req, res) => {
+  console.log("endpoint hit...");
+
+  submissions.on("item", (item) => {
+    //console.log(item)
+    io.emit("stream", item);
+  });
+
+  // comments.on("item", (item) => {
+  //  // console.log(item);
+  //   io.emit("stream", item);
+  // });
+
+  res.send("hm");
+});
+
+app.get("/com", (_req, res) => {
+  console.log("com endpoint hit...");
+
+  r.getUser("Known_Importance_829")
+    .getComments()
+    .then((item) => {
+      res.send(item);
+    });
+});
+
+server.listen(process.env.PORT || 8001, () => {
+  console.log("running server.js");
 });
 
 
