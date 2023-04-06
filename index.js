@@ -44,12 +44,16 @@ const submissions = s.Stream("submission", {
 app.get("/", (_req, res) => {
   console.log("endpoint hit...");
 
-  submissions.on("item", (item) => {
-    //console.log(item)
-    io.emit("stream", item);
-  });
+r.getDefaultSubreddits("all").then( (item) => {
+  console.log(item)
+res.send(item)
+});
 
-  res.send("hm");
+  // submissions.on("item", (item) => {
+  //   //console.log(item)
+  //     io.emit("stream", item);
+  // });
+  // res.send('submission stream engaged');
 });
 
 
@@ -63,6 +67,9 @@ app.get("/com", (_req, res) => {
       res.send(item);
     });
 });
+
+
+
 
 server.listen(process.env.PORT || 8001, () => {
   console.log("running server.js");

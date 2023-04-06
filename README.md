@@ -1,6 +1,6 @@
 ## Project Title
 
-Vegan Reddit Troll Bot
+Vegan Reddit Bot
 
 ## Project Description
 
