@@ -32,8 +32,8 @@ const options = {
 };
 
 app.get("/", (_req, res) => {
-  res.send(options)
-}
+  res.send(options);
+});
 
 const r = new snoowrap(options);
 const s = new snoostorm(r);
@@ -48,10 +48,10 @@ const submissions = s.Stream("submission", {
 app.get("/", (_req, res) => {
   console.log("endpoint hit...");
 
-r.getDefaultSubreddits("all").then( (item) => {
-  console.log(item)
-res.send(item)
-});
+  r.getDefaultSubreddits("all").then((item) => {
+    console.log(item);
+    res.send(item);
+  });
 
   // submissions.on("item", (item) => {
   //   //console.log(item)
@@ -59,8 +59,6 @@ res.send(item)
   // });
   // res.send('submission stream engaged');
 });
-
-
 
 app.get("/com", (_req, res) => {
   console.log("com endpoint hit...");
@@ -71,9 +69,6 @@ app.get("/com", (_req, res) => {
       res.send(item);
     });
 });
-
-
-
 
 server.listen(process.env.PORT || 8001, () => {
   console.log("running server.js");
