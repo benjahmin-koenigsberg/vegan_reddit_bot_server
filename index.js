@@ -25,10 +25,10 @@ io = new Server(server, {
 
 const options = {
   userAgent: "animalLiberation",
-  clientSecret: process.env.CLIENT_SECRET2,
-  clientId: process.env.CLIENT_ID2,
-  username: process.env.USERNAME2,
-  password: process.env.PASSWORD2,
+  clientSecret: process.env.CLIENT_SECRET,
+  clientId: process.env.CLIENT_ID,
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
 };
 
 console.log(options)
