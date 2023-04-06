@@ -29,7 +29,7 @@ const options = {
   clientSecret: process.env.CLIENT_SECRET,
   clientId: process.env.CLIENT_ID,
   username: "Known_Importance_829",
-  password: process.env.PASSWORD
+  password: process.env.PASSWORD,
 };
 
 const r = new snoowrap(options);
@@ -52,7 +52,7 @@ app.get("/", (_req, res) => {
   console.log("endpoint hit...");
 
   submissions.on("item", (item) => {
-   //console.log(item)
+    //console.log(item)
     io.emit("stream", item);
   });
 
@@ -64,17 +64,16 @@ app.get("/", (_req, res) => {
   res.send("hm");
 });
 
-
 app.get("/com", (_req, res) => {
   console.log("com endpoint hit...");
 
-r.getUser("Known_Importance_829").getComments().then( (item) => {
-  res.send(item)
-} );
-
+  r.getUser("Known_Importance_829")
+    .getComments()
+    .then((item) => {
+      res.send(item);
+    });
 });
 
-
-server.listen(8001, () => {
+server.listen(process.env.PORT || 8001, () => {
   console.log("running server.js");
 });
