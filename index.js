@@ -41,7 +41,7 @@ const submissions = s.Stream("submission", {
 });
 
 //new comments stream
-const comments = s2.Stream("comment", {
+const comments = s.Stream("comment", {
   subreddit: "all",
   pollTime: 5000,
 });
@@ -50,7 +50,7 @@ const comments = s2.Stream("comment", {
 app.get("/", (_req, res) => {
   console.log("endpoint hit...");
 
-  r.getDefaultSubreddits("foodie+bacon+food+foodporn+cooking+askculinary+recipes+BreakfastFood+pizza+meat").then((item) => {
+  r.getDefaultSubreddits("food").then((item) => {
     console.log(item);
     res.send(item);
   });
@@ -110,7 +110,6 @@ comments.on("item", (item) => {
       );
     }
   });
-
 
 
 app.listen(process.env.PORT || 8001, () => {

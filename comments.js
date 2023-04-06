@@ -15,11 +15,11 @@ const options = {
 };
 
 const r = new snoowrap(options);
-const s2 = new snoostorm(r);
+const s = new snoostorm(r);
 
 
 
-const comments = s2.Stream("comment", {
+const comments = s.Stream("comment", {
   subreddit: "all",
   pollTime: 5000,
 });
