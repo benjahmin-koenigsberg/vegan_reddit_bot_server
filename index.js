@@ -5,7 +5,7 @@ const app = express();
 const snoowrap = require("snoowrap");
 const snoostorm = require("snoostorm-es6");
 const { InboxStream } = require("snoostorm");
-import dummySubs from './dummySubs'
+
 
 var cors = require("cors");
 app.use(cors());
@@ -37,7 +37,7 @@ const s = new snoostorm(r);
 
 //new submission stream
 const submissions = s.Stream("submission", {
-  subreddit: "all",
+  subreddit: "food+cooking+bacon+foodporn",
   pollTime: 5000,
 });
 
@@ -48,32 +48,33 @@ const comments = s.Stream("comment", {
 });
 
 //initate getting updated submissions for front end
-app.get("/", (_req, res) => {
-  console.log("endpoint hit...");
-  res.send(dummySubs)
 
-  // r.getDefaultSubreddits("all")
-  //   .then((item) => {
-  //     console.log(item);
-  //    res.send(item);
-  //   });
+//app.get("/", (_req, res) => {
+
+//  console.log("endpoint hit...");
+
+//   r.getDefaultSubreddits("all")
+//     .then((item) => {
+//       console.log(item);
+//      res.send(item);
+//     });
 // })
-  //submissions.on("item", (item) => {
-    //console.log(item)
-    //io.emit("stream", item);
-  //});
- // res.send(item);
-});
+//   submissions.on("item", (item) => {
+//     console.log(item)
+//     io.emit("stream", item);
+//   });
+//   res.send('endpoint hit');
+// });
 
 
 //end point to get comments for front end
 app.get("/com", (_req, res) => {
-  console.log("com endpoint hit...");
-
+  console.log("comments endpoint hit...");
   r.getUser("Known_Importance_829")
     .getComments()
     .then((item) => {
       res.send(item);
+     // console.log(item);
     });
 });
 
@@ -95,7 +96,13 @@ comments.on("item", (item) => {
 });
 
   submissions.on("item", (item) => {
-    console.log(item)
+   console.log(`{
+title : "${item.title}",
+author_fullname : "${item.author_fullname}",
+selftext : "${item.selftext}"
+  },`);
+
+
     if (
       item.title.toLowerCase().includes("bacon") ||
       item.selftext.toLowerCase().includes("bacon")
