@@ -25,10 +25,10 @@ io = new Server(server, {
 
 const options = {
   userAgent: "animalLiberation",
-  clientSecret: process.env.CLIENT_SECRET,
-  clientId: process.env.CLIENT_ID,
-  username: process.env.USERNAME,
-  password: process.env.PASSWORD,
+  clientSecret: process.env.CLIENT_SECRET2,
+  clientId: process.env.CLIENT_ID2,
+  username: process.env.USERNAME2,
+  password: process.env.PASSWORD2,
 };
 
 const r = new snoowrap(options);
@@ -54,13 +54,17 @@ app.get("/", (_req, res) => {
     console.log(item);
     res.send(item);
   });
+})
+//   submissions.on("item", (item) => {
+//     console.log(item)
+//     const items = []
+//     item.forEach( ( el) => items.push(el))
+//     console.log(items)
+//     io.emit("stream", item);
+//   });
+//   res.send('submission stream engaged');
+// });
 
-  submissions.on("item", (item) => {
-    //console.log(item)
-    io.emit("stream", item);
-  });
-  // res.send('submission stream engaged');
-});
 
 //end point to get comments for front end
 app.get("/com", (_req, res) => {
