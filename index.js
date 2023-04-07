@@ -5,6 +5,7 @@ const app = express();
 const snoowrap = require("snoowrap");
 const snoostorm = require("snoostorm-es6");
 const { InboxStream } = require("snoostorm");
+import dummySubs from './dummySubs'
 
 var cors = require("cors");
 app.use(cors());
@@ -49,12 +50,13 @@ const comments = s.Stream("comment", {
 //initate getting updated submissions for front end
 app.get("/", (_req, res) => {
   console.log("endpoint hit...");
+  res.send(dummySubs)
 
-  r.getDefaultSubreddits("all")
-    .then((item) => {
-      console.log(item);
-     res.send(item);
-    });
+  // r.getDefaultSubreddits("all")
+  //   .then((item) => {
+  //     console.log(item);
+  //    res.send(item);
+  //   });
 // })
   //submissions.on("item", (item) => {
     //console.log(item)
@@ -93,6 +95,7 @@ comments.on("item", (item) => {
 });
 
   submissions.on("item", (item) => {
+    console.log(item)
     if (
       item.title.toLowerCase().includes("bacon") ||
       item.selftext.toLowerCase().includes("bacon")
