@@ -62,12 +62,12 @@ app.get("/", (_req, res) => {
     items.push(item)
 
     setTimeout(() => {
-submissions.on('end', () => res.send(items) )
+submissions.on('end', () => console.log('submission stream ended') )
     }, 10000);
 
     //io.emit("stream", item);
   });
-  //res.send('submission stream engaged');
+  res.send(items);
 });
 
 
