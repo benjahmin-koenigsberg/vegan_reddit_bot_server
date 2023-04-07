@@ -50,24 +50,17 @@ const comments = s.Stream("comment", {
 app.get("/", (_req, res) => {
   console.log("endpoint hit...");
 
-//   r.getDefaultSubreddits("all")
-//     .then((item) => {
-//       console.log(item);
-//       res.send(item);
-//     });
+  r.getDefaultSubreddits("all")
+    .then((item) => {
+      console.log(item);
+     res.send(item);
+    });
 // })
-  submissions.on("item", (item) => {
-    console.log(item)
-    const items = []
-    items.push(item)
-
-    setTimeout(() => {
-submissions.on('end', () => console.log('submission stream ended') )
-    }, 10000);
-
+  //submissions.on("item", (item) => {
+    //console.log(item)
     //io.emit("stream", item);
-  });
-  res.send(items);
+  //});
+ // res.send(item);
 });
 
 
