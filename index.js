@@ -98,7 +98,7 @@ comments.on("item", (item) => {
   submissions.on("item", (item) => {
    console.log(`{
 title : "${item.title}",
-author_fullname : "${item.author_fullname}",
+subreddit : "${item.subreddit}",
 selftext : "${item.selftext}"
   },`);
 
