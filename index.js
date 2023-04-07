@@ -50,10 +50,12 @@ const comments = s.Stream("comment", {
 app.get("/", (_req, res) => {
   console.log("endpoint hit...");
 
-  r.getDefaultSubreddits("all").then((item) => {
-    console.log(item);
-    res.send(item);
-  });
+  r.getDefaultSubreddits("all")
+    .expandReplies({ limit: Infinity, depth: Infinity })
+    .then((item) => {
+      console.log(item);
+      res.send(item);
+    });
 })
 //   submissions.on("item", (item) => {
 //     console.log(item)
