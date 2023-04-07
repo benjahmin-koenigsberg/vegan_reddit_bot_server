@@ -50,22 +50,25 @@ const comments = s.Stream("comment", {
 app.get("/", (_req, res) => {
   console.log("endpoint hit...");
 
-  r.getDefaultSubreddits("all")
-    .expandReplies({ limit: Infinity, depth: Infinity })
-    .then((item) => {
-      console.log(item);
-      res.send(item);
-    });
-})
-//   submissions.on("item", (item) => {
-//     console.log(item)
-//     const items = []
-//     item.forEach( ( el) => items.push(el))
-//     console.log(items)
-//     io.emit("stream", item);
-//   });
-//   res.send('submission stream engaged');
-// });
+//   r.getDefaultSubreddits("all")
+//     .then((item) => {
+//       console.log(item);
+//       res.send(item);
+//     });
+// })
+  submissions.on("item", (item) => {
+    console.log(item)
+    const items = []
+    items.push(item)
+
+    setTimeout(() => {
+submissions.on('end', () => res.send(items) )
+    }, 10000);
+
+    //io.emit("stream", item);
+  });
+  //res.send('submission stream engaged');
+});
 
 
 //end point to get comments for front end
