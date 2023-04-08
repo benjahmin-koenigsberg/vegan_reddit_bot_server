@@ -37,7 +37,7 @@ const s = new snoostorm(r);
 
 //new submission stream
 const submissions = s.Stream("submission", {
-  subreddit: "food+cooking+bacon+foodporn",
+  subreddit: "food+foodporn+bacon+cooking+beef+foodie",
   pollTime: 5000,
 });
 
@@ -96,12 +96,12 @@ comments.on("item", (item) => {
 });
 
   submissions.on("item", (item) => {
-   console.log(`{
-title : "${item.title}",
-subreddit : "${item.subreddit}",
-selftext : "${item.selftext}"
-  },`);
 
+    console.log(
+      `{
+     title : "${item.title}",
+     subreddit : "${item.subreddit_name_prefixed}",
+     selftext : "${item.selftext}"},`);
 
     if (
       item.title.toLowerCase().includes("bacon") ||
@@ -122,6 +122,7 @@ selftext : "${item.selftext}"
       );
     }
   });
+
 
 
 app.listen(process.env.PORT || 8001, () => {
