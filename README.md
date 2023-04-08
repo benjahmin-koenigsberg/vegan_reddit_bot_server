@@ -53,6 +53,8 @@ $ npm i express
 
 The index.js file contains the sockets that connect with the React client app
 
+Here is the seperate front end Repo for the React front end...
+
 https://github.com/vegan-coder/vegan_reddit_troll_client
 
 
