@@ -49,7 +49,7 @@ const comments = s.Stream("comment", {
 
 //initate getting updated submissions for front end
 
-//app.get("/", (_req, res) => {
+app.get("/", (_req, res) => {
 
 //  console.log("endpoint hit...");
 
@@ -63,8 +63,8 @@ const comments = s.Stream("comment", {
 //     console.log(item)
 //     io.emit("stream", item);
 //   });
-//   res.send('endpoint hit');
-// });
+  res.send('endpoint hit');
+});
 
 
 //end point to get comments for front end
