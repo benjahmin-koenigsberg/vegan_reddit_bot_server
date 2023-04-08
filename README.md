@@ -17,7 +17,13 @@ We used a an Express.js / Node.js server with Javascript warppers for the Reddit
 
 ## Challenges and future features
 
+Initail challenges were to discover that many of the snoowrap / snoostorm methods seemed depricated after switching to using the es6 'require' vs. es5 'import'
+
 The more modern syntax (require) for snoowrap / snoostorm is highly recommened over es5 (import) syntax
+
+There is documentation online and some discussion about these wrappers, but only a fraction of the community support for the Python Reddit wrapper, PRAW
+
+There was an initial learning curve, learning about Reddit's API ratelimit and Reddit's new account posting limits
 
 Feature versions will have more dynamic saerch and response logic with a broader range of posts and replies
 
@@ -26,6 +32,8 @@ Feature versions will have more dynamic saerch and response logic with a broader
 Once you have cloned ths repo
 
 login or signin to reddit and visit https://www.reddit.com/prefs/apps
+
+![](2023-04-08-09-04-53.png)
 
 Create a new select personal use script app
 
@@ -61,6 +69,9 @@ https://www.npmjs.com/package/snoostorm
 Mayor Monty, creator of github snoostorm
 https://github.com/MayorMonty/Snoostorm
 
+I would also like to thank the creators of sevreal bot testing subreddits, including
+
+r/bottest, r/bottesting, and r/testinggrounds4bots
 
 This project was inspired by the Vegan Hactivists
 
