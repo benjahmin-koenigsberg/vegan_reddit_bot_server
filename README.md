@@ -33,7 +33,7 @@ Once you have cloned ths repo
 
 login or signin to reddit and visit https://www.reddit.com/prefs/apps
 
-![](2023-04-08-09-04-53.png)
+![redditApp screen shot](https://user-images.githubusercontent.com/116445988/230722968-4662a743-d7c5-4158-8420-96390064c7cf.png)
 
 Create a new select personal use script app
 
