@@ -11,6 +11,10 @@ sentience and personhood
 
 The search and reply word parameters can be customized
 
+a live version on the site can be found at
+
+https://vegan-reddit-troll-client.vercel.app/
+
 ## Tech stack
 
 We used a an Express.js / Node.js server with Javascript warppers for the Reddit API, Snoowrap and Snoostorm and Sockets.io to live stream to the React.js client
